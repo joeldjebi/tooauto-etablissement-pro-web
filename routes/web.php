@@ -9,7 +9,6 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AbonnementProController;
 use App\Http\Controllers\ForfaitController;
 use App\Http\Controllers\PromotionController;
-// use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +38,6 @@ Route::middleware(['auth', 'check.etablissement'])->group(function () {
     Route::get('/etablissement/edit', [EtablissementController::class, 'edit'])->name('etablissement.edit');
     Route::post('/etablissement/update/{id}', [EtablissementController::class, 'update'])->name('etablissement.update');
 
-    // Route::get('/get-villes/{paysId}', [LocationController::class, 'getVilles']);
-    // Route::get('/get-communes/{villeId}', [LocationController::class, 'getCommunes']);
 
     Route::get('/liste-des-services', [ServiceController::class, 'index'])->name('service.index');
     Route::post('/store-services', [ServiceController::class, 'store'])->name('service.store');
