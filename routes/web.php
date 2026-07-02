@@ -9,6 +9,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AbonnementProController;
 use App\Http\Controllers\ForfaitController;
 use App\Http\Controllers\PromotionController;
+// use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +39,8 @@ Route::middleware(['auth', 'check.etablissement'])->group(function () {
     Route::get('/etablissement/edit', [EtablissementController::class, 'edit'])->name('etablissement.edit');
     Route::post('/etablissement/update/{id}', [EtablissementController::class, 'update'])->name('etablissement.update');
 
-    Route::get('/get-villes/{paysId}', [LocationController::class, 'getVilles']);
-    Route::get('/get-communes/{villeId}', [LocationController::class, 'getCommunes']);
+    // Route::get('/get-villes/{paysId}', [LocationController::class, 'getVilles']);
+    // Route::get('/get-communes/{villeId}', [LocationController::class, 'getCommunes']);
 
     Route::get('/liste-des-services', [ServiceController::class, 'index'])->name('service.index');
     Route::post('/store-services', [ServiceController::class, 'store'])->name('service.store');
@@ -50,11 +51,11 @@ Route::middleware(['auth', 'check.etablissement'])->group(function () {
     Route::post('/store-articles', [ArticleController::class, 'store'])->name('article.store');
     Route::post('/update-articles/{id}', [ArticleController::class, 'update'])->name('article.update');
     Route::delete('articles/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
-    
+
     Route::get('/historique-des-abonnements', [AbonnementProController::class, 'index'])->name('abonnement.index');
     Route::get('/recu-abonnement/{id}', [AbonnementProController::class, 'imprimerRecu'])->name('imprimerRecu');
 
-    
+
     Route::get('/les-forfaits', [ForfaitController::class, 'index'])->name('forfait.index');
 
     Route::get('/liste-des-promotions', [PromotionController::class, 'index'])->name('promotion.index');
